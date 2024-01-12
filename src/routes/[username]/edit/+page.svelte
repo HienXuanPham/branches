@@ -2,7 +2,7 @@
   import { page } from '$app/stores'
   import UserLink from '$lib/components/UserLink.svelte'
   import SortableList from '$lib/components/SortableList.svelte'
-  import { db, userData, user } from '$lib/firebase'
+  import { db, userData, user, auth } from '$lib/firebase'
   import {
     arrayRemove,
     arrayUnion,
@@ -11,6 +11,7 @@
     updateDoc,
   } from 'firebase/firestore'
   import { writable } from 'svelte/store'
+  import NavBar from '$lib/components/NavBar.svelte'
 
   const icons = ['Twitter', 'YouTube', 'TikTok', 'LinkedIn', 'GitHub', 'Custom']
 
@@ -66,7 +67,7 @@
   }
 </script>
 
-<!-- navbar -->
+<NavBar />
 <div class="mb-12 pb-12">
   <main class="max-w-xl mx-auto">
     {#if $userData?.username == $page.params.username}

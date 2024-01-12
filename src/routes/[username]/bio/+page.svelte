@@ -2,13 +2,15 @@
   import type { PageData } from './$types'
   import { page } from '$app/stores'
   import { enhance } from '$app/forms'
+  import NavBar from '$lib/components/NavBar.svelte'
 
   export let data: PageData
 </script>
 
+<NavBar />
 <main class="max-w-lg prose text-center mx-auto my-6">
+  <h2>Edit your Bio</h2>
   <p>Current Bio: <span class="text-info">{data.bio}</span></p>
-
   <p>Status Code: {$page.status}</p>
   <p class="text-error">{$page.form?.problem ?? ''}</p>
 
