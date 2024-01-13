@@ -1,6 +1,5 @@
 <script lang="ts">
   import { auth, userData } from '$lib/firebase'
-  import { redirect } from '@sveltejs/kit'
   import { signOut } from 'firebase/auth'
 
   async function signOutSSR() {
@@ -10,7 +9,9 @@
 </script>
 
 <div class="navbar bg-base-100">
-  <div class="navbar-start" />
+  <div class="navbar-start">
+    <span class="hidden lg:inline">Branches</span>
+  </div>
   <div class="navbar-center">
     <span class="btn btn-ghost normal-case text-xl">
       <a href="/{$userData?.username}"
